@@ -1,10 +1,10 @@
 package org.example;
 
 public interface Library {
-    void addClient(Client client);
+    String addClient(String firstName, String lastName, String email);
     void removeClient(String clientId);
-    void addBook(Book book);
+    String addBook(String title, String author);
     void removeBook(String bookId);
     void addBookToClient(String clientId, String bookId);
-    void removeBookFromClient(String clientId, String bookId);
+    void removeBookFromClient(String bookId);
 }

@@ -1,14 +1,18 @@
 package org.example;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryImplTest {
 
     @BeforeEach
     void setup(){
         LibraryImpl testLibrary = new LibraryImpl();
+    }
+
+    @AfterEach
+    void tearDown(){
+        LibraryImpl testLibrary = null;
     }
 
     @org.junit.jupiter.api.Test

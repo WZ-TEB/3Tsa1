@@ -1,33 +1,44 @@
 package org.example;
 
-public class LibraryImpl implements Library {
-    @Override
-    public void addClient(Client client) {
+import java.util.HashMap;
 
+public class LibraryImpl implements Library {
+
+    HashMap<String, Client> clients = new HashMap<>();
+    HashMap<String, Book> books = new HashMap<>();
+    HashMap<String, String> booksOfClients = new HashMap<>();
+
+    @Override
+    public String addClient(String firstName, String lastName, String email) {
+        Client client = new Client(firstName, lastName, email);
+        clients.put(client.getClientId(), client);
+        return client.getClientId();
     }
 
     @Override
     public void removeClient(String clientId) {
-
+        clients.remove(clientId);
     }
 
     @Override
-    public void addBook(Book book) {
-
+    public String addBook(String title, String author) {
+        Book book = new Book(title, author);
+        books.put(book.getBookId(), book);
+        return book.getBookId();
     }
 
     @Override
     public void removeBook(String bookId) {
-
+        books.remove(bookId);
     }
 
     @Override
     public void addBookToClient(String clientId, String bookId) {
-
+        booksOfClients.put(bookId, clientId);
     }
 
     @Override
-    public void removeBookFromClient(String clientId, String bookId) {
-
+    public void removeBookFromClient(String bookId) {
+        booksOfClients.remove(bookId);
     }
 }
