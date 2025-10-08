@@ -3,7 +3,11 @@ package org.example;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 class LibraryImplTest {
+
+    LibraryImpl testLibrary = new LibraryImpl();
 
     @BeforeEach
     void setup(){
@@ -20,9 +24,9 @@ class LibraryImplTest {
         //given
 
         //when
-
+        testLibrary.addClient("testFirstName", "testLastName", "testEmail");
         //then
-
+        assertEquals(1, testLibrary.clients.size());
     }
 
     @org.junit.jupiter.api.Test

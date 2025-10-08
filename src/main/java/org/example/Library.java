@@ -5,6 +5,6 @@ public interface Library {
     void removeClient(String clientId);
     String addBook(String title, String author);
     void removeBook(String bookId);
-    void addBookToClient(String clientId, String bookId);
+    void addBookToClient(String bookId, String clientId);
     void removeBookFromClient(String bookId);
 }

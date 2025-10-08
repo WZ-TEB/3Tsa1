@@ -33,7 +33,7 @@ public class LibraryImpl implements Library {
     }
 
     @Override
-    public void addBookToClient(String clientId, String bookId) {
+    public void addBookToClient(String bookId, String clientId) {
         booksOfClients.put(bookId, clientId);
     }
 
