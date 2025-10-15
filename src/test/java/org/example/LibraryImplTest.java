@@ -21,10 +21,10 @@ class LibraryImplTest {
 
     @org.junit.jupiter.api.Test
     void addClient() {
-        //given
-        //when
+        //given -> tutaj umieszczamy dane wstepne potrzebne do testu
+        //when -> wywolujemy metode testowana
         String clientId = testLibrary.addClient("testFirstName", "testLastName", "testEmail");
-        //then
+        //then -> assert na podstawie ktorego oceniamy dzialanie testu, expected value wpisujemy z palca w assertEquals
         assertEquals(1, testLibrary.clients.size());
         assertTrue(testLibrary.clients.containsKey(clientId));
         assertNotNull(testLibrary.clients.keySet());
