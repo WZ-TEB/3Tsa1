@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LibraryImplTest {
 
-    LibraryImpl testLibrary = new LibraryImpl();
+    LibraryImpl testLibrary;
 
     @BeforeEach
     void setup(){
@@ -22,16 +22,23 @@ class LibraryImplTest {
     @org.junit.jupiter.api.Test
     void addClient() {
         //given
-
         //when
-        testLibrary.addClient("testFirstName", "testLastName", "testEmail");
+        String clientId = testLibrary.addClient("testFirstName", "testLastName", "testEmail");
         //then
         assertEquals(1, testLibrary.clients.size());
+        assertTrue(testLibrary.clients.containsKey(clientId));
+        assertNotNull(testLibrary.clients.keySet());
     }
 
     @org.junit.jupiter.api.Test
     void removeClient() {
-
+        //given
+        String clientId = testLibrary.addClient("testFirstName", "testLastName", "testEmail");
+        //then
+        testLibrary.removeClient(clientId);
+        //when
+        assertEquals(0, testLibrary.clients.size());
+        assertFalse(testLibrary.clients.containsKey(clientId));
     }
 
     @org.junit.jupiter.api.Test
